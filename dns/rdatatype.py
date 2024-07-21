@@ -109,7 +109,7 @@ class RdataType(dns.enum.IntEnum):
     WALLET = 262
     TA = 32768
     DLV = 32769
-    DSYNC = 65432
+    DSYNC = 3995
 
     @classmethod
     def _maximum(cls):
