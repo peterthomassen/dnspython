@@ -560,7 +560,9 @@ async def https(
     else:
         url = where
 
-    if http_version == HTTPVersion.H3 or (http_version == HTTPVersion.DEFAULT and not have_doh):
+    if http_version == HTTPVersion.H3 or (
+        http_version == HTTPVersion.DEFAULT and not have_doh
+    ):
         if bootstrap_address is None:
             parsed = urllib.parse.urlparse(url)
             resolver = _maybe_get_resolver(resolver)
@@ -621,9 +623,7 @@ async def https(
     if client:
         cm: contextlib.AbstractAsyncContextManager = NullContext(client)
     else:
-        cm = httpx.AsyncClient(
-            http1=h1, http2=h2, verify=verify, transport=transport
-        )
+        cm = httpx.AsyncClient(http1=h1, http2=h2, verify=verify, transport=transport)
 
     async with cm as the_client:
         # see https://tools.ietf.org/html/rfc8484#section-4.1.1 for DoH

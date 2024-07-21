@@ -449,7 +449,9 @@ def https(
     else:
         url = where
 
-    if http_version == HTTPVersion.H3 or (http_version == HTTPVersion.DEFAULT and not have_doh):
+    if http_version == HTTPVersion.H3 or (
+        http_version == HTTPVersion.DEFAULT and not have_doh
+    ):
         if bootstrap_address is None:
             parsed = urllib.parse.urlparse(url)
             resolver = _maybe_get_resolver(resolver)
