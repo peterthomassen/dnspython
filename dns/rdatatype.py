@@ -109,6 +109,7 @@ class RdataType(dns.enum.IntEnum):
     WALLET = 262
     TA = 32768
     DLV = 32769
+    DSYNC = 65432
 
     @classmethod
     def _maximum(cls):
@@ -332,5 +333,6 @@ RESINFO = RdataType.RESINFO
 WALLET = RdataType.WALLET
 TA = RdataType.TA
 DLV = RdataType.DLV
+DSYNC = RdataType.DSYNC
 
 ### END generated RdataType constants
